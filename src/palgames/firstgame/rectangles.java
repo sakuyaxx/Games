@@ -21,6 +21,11 @@ public class rectangles extends BasicGame {
     public void update(GameContainer gameContainer, int i) throws SlickException {
         this.xAxis++;
         this.yAxis++;
+
+        if (this.xAxis >= 800){
+            this.xAxis = 0;
+            this.yAxis = 0;
+        }
     }
 
     @Override
