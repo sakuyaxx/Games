@@ -5,7 +5,7 @@ import palgames.firstgame.rectangles;
 
 public class MainGame extends BasicGame {
 
-    private int x,y;
+    private float x,y;
 
     public MainGame(String title) {
         super(title);
@@ -19,7 +19,15 @@ public class MainGame extends BasicGame {
 
     @Override
     public void update(GameContainer gameContainer, int delta) throws SlickException {
-        this.x++;
+        this.x+= (float)delta/5.0;
+        this.y+= (float)delta/5;
+
+        if (this.x >= 800){
+            this.x = 0;
+            this.y = 0;
+        }
+
+        System.out.println(delta);
     }
 
     @Override
