@@ -15,6 +15,10 @@ public class HomerActor implements Actor, Observer{
     }
 
     private Color color;
+
+    public HomerActor(int x, int y) {
+    }
+
     @Override
     public void update(GameContainer gc, int delta) {
         if (this.x <= 1000) {

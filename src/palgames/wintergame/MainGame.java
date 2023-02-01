@@ -21,14 +21,18 @@ public class MainGame extends BasicGame {
        MoveStrategy mr1 = new MoveRight(0, 0, 0.3f);
        MoveStrategy ml2 = new MoveLeft(500, 100, 0.1f);
 
-        this.actors.add(new CircleActor(mr1));
-        this.actors.add(new CircleActor(ml2));
+        this.actors.add(new CircleActor());
+        this.actors.add(new CircleActor());
 
         this.actors.add(new RectActor(100,300));
         HomerActor ha1 = new HomerActor(100, 200, 0.1f);
         this.actors.add(ha1);
 
         this.player.setHomerActor(ha1);
+
+        for (int i = 0; i < 10; i++) {
+            this.actors.add(RandomCircleFactory.getRandomActor());
+        }
     }
 
     @Override

@@ -6,11 +6,6 @@ import org.newdawn.slick.Graphics;
 public class CircleActor implements Actor{
     private MoveStrategy moveStrategy;
 
-    public CircleActor(MoveStrategy mr) {
-        super();
-        this.moveStrategy = mr;
-    }
-
     @Override
     public void update(GameContainer gc, int delta) {
         moveStrategy.update(delta);
