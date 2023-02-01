@@ -1,5 +1,7 @@
 package palgames.wintergame;
 import org.newdawn.slick.*;
+import org.w3c.dom.css.Counter;
+import org.w3c.dom.ls.LSOutput;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +35,11 @@ public class MainGame extends BasicGame {
         for (int i = 0; i < 10; i++) {
             this.actors.add(RandomCircleFactory.getRandomActor());
         }
+
+        CounterSingleton cs1 = CounterSingleton.getInstance();
+
+        cs1.incCounter();                          //DEBUG
+        System.out.println(cs1.getCounter());
     }
 
     @Override
