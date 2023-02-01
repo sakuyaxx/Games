@@ -7,6 +7,7 @@ import java.util.List;
 public class MainGame extends BasicGame {
 
     private List<Actor> actors;
+    private Player player;
 
     public MainGame(String title) {
         super(title);
@@ -15,9 +16,19 @@ public class MainGame extends BasicGame {
     @Override
     public void init(GameContainer gc) throws SlickException {
        this.actors = new ArrayList<>();
-        this.actors.add(new CircleActor(100,100));
-        this.actors.add(new CircleActor(200,100));
+       this.player = new Player();
+
+       MoveStrategy mr1 = new MoveRight(0, 0, 0.3f);
+       MoveStrategy ml2 = new MoveLeft(500, 100, 0.1f);
+
+        this.actors.add(new CircleActor(mr1));
+        this.actors.add(new CircleActor(ml2));
+
         this.actors.add(new RectActor(100,300));
+        HomerActor ha1 = new HomerActor(100, 200, 0.1f);
+        this.actors.add(ha1);
+
+        this.player.setHomerActor(ha1);
     }
 
     @Override
@@ -32,6 +43,7 @@ public class MainGame extends BasicGame {
        for (Actor actor : this.actors){
            actor.render(graphics);
        }
+       player.render(graphics);
     }
 
     public static void main(String[] argv) {
