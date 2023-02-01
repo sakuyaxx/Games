@@ -1,10 +1,12 @@
 package palgames.wintergame;
-
 import org.newdawn.slick.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainGame extends BasicGame {
 
-private CircleActor ca1, ca2;
+    private List<Actor> actors;
 
     public MainGame(String title) {
         super(title);
@@ -12,23 +14,27 @@ private CircleActor ca1, ca2;
 
     @Override
     public void init(GameContainer gc) throws SlickException {
-        this.ca1 = new CircleActor(100,100);
-        this.ca2 = new CircleActor(100,200);
+       this.actors = new ArrayList<>();
+        this.actors.add(new CircleActor(100,100));
+        this.actors.add(new CircleActor(200,100));
+        this.actors.add(new RectActor(100,300));
     }
 
     @Override
     public void update(GameContainer gc, int delta) throws SlickException {
-      this.ca1.update(gc, delta);
-      this.ca2.update(gc, delta);
+        for (Actor actor : this.actors){
+            actor.update(gc, delta);
+        }
     }
 
     @Override
     public void render(GameContainer gc, Graphics graphics) throws SlickException {
-        this.ca1.render(graphics);
-        this.ca2.render(graphics);
+       for (Actor actor : this.actors){
+           actor.render(graphics);
+       }
     }
 
-    /*public static void main(String[] argv) {
+    public static void main(String[] argv) {
         try {
             AppGameContainer container = new AppGameContainer(new MainGame("Winter Game"));
             container.setDisplayMode(800,600,false);
@@ -36,5 +42,5 @@ private CircleActor ca1, ca2;
         } catch (SlickException e) {
             e.printStackTrace();
         }
-    }*/
+    }
 }
