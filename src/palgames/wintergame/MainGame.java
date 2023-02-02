@@ -18,23 +18,24 @@ public class MainGame extends BasicGame {
     @Override
     public void init(GameContainer gc) throws SlickException {
        this.actors = new ArrayList<>();
-       this.player = new Player();
+       this.player = new Player(650, 250, 0.8f);
+       this.actors.add(player);
 
        MoveStrategy mr1 = new MoveRight(0, 0, 0.3f);
-       MoveStrategy ml2 = new MoveLeft(500, 100, 0.1f);
+       MoveStrategy ml1 = new MoveLeft(250, 100, 0.1f);
 
-        this.actors.add(new CircleActor());
-        this.actors.add(new CircleActor());
+        this.actors.add(new CircleActor(mr1));
+        this.actors.add(new CircleActor(ml1));
 
         this.actors.add(new RectActor(100,300));
         HomerActor ha1 = new HomerActor(100, 200, 0.1f);
         this.actors.add(ha1);
 
-        this.player.setHomerActor(ha1);
+        this.player.addObserver(ha1);
 
-        for (int i = 0; i < 10; i++) {
+        /*for (int i = 0; i < 10; i++) {
             this.actors.add(RandomCircleFactory.getRandomActor());
-        }
+        }*/
 
         CounterSingleton cs1 = CounterSingleton.getInstance();
 

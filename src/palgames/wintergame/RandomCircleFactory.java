@@ -1,5 +1,4 @@
-package palgames.wintergame;
-
+/*package palgames.wintergame;
 import java.util.Random;
 
 public class RandomCircleFactory {
@@ -16,4 +15,4 @@ public class RandomCircleFactory {
     }
     return new CircleActor();
 }
-}
+}*/

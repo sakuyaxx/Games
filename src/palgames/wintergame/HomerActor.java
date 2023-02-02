@@ -1,11 +1,10 @@
 package palgames.wintergame;
 
-import org.newdawn.slick.Color;
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
+import org.newdawn.slick.*;
 
 public class HomerActor implements Actor, Observer{
 
+    private Color color;
     private float x, y, speed;
 
     public HomerActor(float x, float y, float speed) {
@@ -14,14 +13,9 @@ public class HomerActor implements Actor, Observer{
         this.speed = speed;
     }
 
-    private Color color;
-
-    public HomerActor(int x, int y) {
-    }
-
     @Override
     public void update(GameContainer gc, int delta) {
-        if (this.x <= 1000) {
+        if (this.x <= 750) {
             this.x+= delta * speed;
         }
         else {
@@ -31,11 +25,13 @@ public class HomerActor implements Actor, Observer{
 
     @Override
     public void render(Graphics graphics) {
-    graphics.fillOval(this.x, this.y, 20, 20);
-    graphics.setColor(Color.white);
+        graphics.setColor(this.color);
+        graphics.fillOval(this.x, this.y, 20, 20);
+        graphics.setColor(Color.white);
+        //System.out.println("hallo");
     }
 
     public void inform() {
-        this.color = Color.orange;
+        this.color = Color.green;
     }
 }
